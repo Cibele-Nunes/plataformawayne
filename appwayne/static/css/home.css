@@ -1,0 +1,37 @@
+body {
+    font-family: "Karla", sans-serif;
+    width: 100%;
+    height: 100%; }
+
+.navbar .navbar-collapse .navbar-nav a:hover{
+    color: #818b8c;
+}
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(98, 101, 114, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.navbar-light .navbar-toggler{
+    color: #626572;
+    border: 2px solid #626572;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: rgba(98, 101, 114, 1);
+    font-size: 20px;
+    width: 30%; }
+
+
+.conteudo{
+    background-color: rgba(242, 242, 242, 1);
+    height: 50px;
+}
+.rodape{
+    background-color: rgba(0, 0, 0, .55);
+    height: 50px;
+}
+
+/* Color Theme Swatches in RGBA */
+.SFC-GRAPHIC-IDENTITY-1-rgba { color: #626572; }
+.SFC-GRAPHIC-IDENTITY-2-rgba { color: #818b8c; }
+.SFC-GRAPHIC-IDENTITY-3-rgba { color: #d8d6d2; }
+.SFC-GRAPHIC-IDENTITY-4-rgba { color: #a09d87; }
+.SFC-GRAPHIC-IDENTITY-5-rgba { color: #0c0c0c; }
+.SFC-GRAPHIC-IDENTITY-5-rgba { color: #b78f1f;}

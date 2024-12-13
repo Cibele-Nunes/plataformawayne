@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{url_for('static', filename= 'image/favicon.ico')}}" type="image/x-icon">
+    <title>Página de Cadastro</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/register.css')}}">
+</head>
+
+<body>
+    <div class="cabeçario"></div>
+    <div class="container">
+        <div class="perg_frequentes">
+            <div><p>Questões?</p></div>
+            <br>
+            <div>
+                <p>Confira nossas <a href="">perguntas frequentesa</a></p>
+            </div>
+        </div>
+        <div class="formulario">
+            <h2 style="margin-left: 30px; margin-top: 30px;">Agradecemos por se inscrever</h2>
+            <h3 style="margin: 30px; margin-bottom: 15px;">Conte-nos sobre você</h3>
+            <section class="sec-form">
+                <form action="/register" method="POST" class="form">
+                    <div class="total-nome">
+                        <div class="divnome">
+                            <input type="text" class="entrada" name="nome" id="nome" style="width: 100%;" required>
+                            <span style="margin-left: 3%;">Digite o seu nome</span>
+                        </div>
+                        <div class="divsobrenome">
+                            <input type="text" class="entrada" name="sobrenome" id="sobrenome" style="width: 100%;" required>
+                            <span style="margin-left: 3%;">Seu sobrenome</span>
+                        </div>
+                    </div>
+                    <div class="outrosdados">
+                        <input type="text" class="entrada" name="email" id="email" style="width: 40%" required>
+                        <span style="margin-left: 31%;">E-mail</span>
+                    </div>
+                    <div class="outrosdados">
+                        <input type="text" class="entrada" name="telefone" id="telefone" style="width: 25%" required>
+                        <span style="margin-left: 38%;">Número do telefone</span>
+                    </div>
+                    <div class="outrosdados">
+                        <input type="password" class="entrada" name="senha" id="senha" style="width: 30%" required>
+                        <span style="margin-left: 36%;">Crie a sua senha</span>
+                    </div>
+                    <div class="outrosdados">
+                        <input type="password" class="entrada" name="confirm_senha" id="confirm_senha" style="width: 30%" required>
+                        <span style="margin-left: 36%;">Confirme a sua senha</span>
+                    </div>
+                    <button>Cadastrar</button>
+                </form>
+            </section>
+        </div>
+    </div>
+    <div class="rodape"></div>
+
+    <h1>Usuários Cadastrados</h1>
+    <p><strong>Digite o seu nome</strong>{{nome}}</p>
+    <p><strong>Seu sobrenome</strong>{{sobrenome}}</p>
+    <p><strong>E-mail</strong>{{email}}</p>
+    <p><strong>Número do telefone</strong>{{telefone}}</p>
+    <p><strong>Crie a sua senha</strong>{{senha}}</p>
+    <p><strong>Confirme a sua senha</strong>{{confirm_senha}}</p>
+    
+
+</body>
+
+</html>
