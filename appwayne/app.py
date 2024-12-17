@@ -20,11 +20,12 @@ def create_app():
 
     db.init_app(app)
     migrate.init_app(app, db)
-    login_manager = LoginManager()
-    login_manager.init_app(app)
+
+    
 
     with app.app_context(): 
         from appwayne.views import main_blueprint 
         app.register_blueprint(main_blueprint)
-
+    
     return app
+
