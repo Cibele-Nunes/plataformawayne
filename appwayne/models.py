@@ -1,19 +1,18 @@
-from sqlalchemy import Integer, String, ForeignKey, DateTime
-from sqlalchemy.orm import mapped_column
-from datetime import datetime
+from sqlalchemy import Column, Integer, String, ForeignKey, Date
+from datetime import date
 from appwayne.database import Base
 
 class Register(Base):
     __tablename__ = 'registers'
-    id = mapped_column(Integer, primary_key=True, autoincrement=True, unique=True)
-    DataCadastro = mapped_column(DateTime, default=datetime.now, onupdate=datetime.now, nullable=False)
-    user_nome = mapped_column(String(50), nullable=False)
-    nome = mapped_column(String(50), nullable=False)
-    sobrenome = mapped_column(String(50), nullable=False)
-    email = mapped_column(String(50), nullable=False, unique=True)
-    telefone = mapped_column(String(20), nullable=False)
-    senha = mapped_column(String(50), nullable=False)
-    confirm_senha = mapped_column(String(50), nullable=False)
+    id = Column(Integer, primary_key=True, autoincrement=True, unique=True) 
+    DataCadastro = Column(Date, default=date.today, nullable=False) 
+    user_nome = Column(String(50), nullable=False, unique=True) 
+    nome = Column(String(50), nullable=False) 
+    sobrenome = Column(String(50), nullable=True) 
+    email = Column(String(50), nullable=False) 
+    telefone = Column(String(20), nullable=True) 
+    senha = Column(String(50), nullable=False) 
+    confirm_senha = Column(String(50), nullable=False)
 
     def __init__(self, DataCadastro, user_nome, nome, sobrenome, email, telefone, senha, confirm_senha):
         self.DataCadastro = DataCadastro
@@ -27,9 +26,9 @@ class Register(Base):
     
 class Login(Base):
     __tablename__ = 'usuarios'
-    id = mapped_column(Integer, ForeignKey('registers.id'), primary_key=True, nullable=False)
-    user_nome = mapped_column(String(50), nullable=False)
-    senha = mapped_column(String(50), nullable=False)
+    id = Column(Integer, ForeignKey('registers.id'), primary_key=True, nullable=False)
+    user_nome = Column(String(50), nullable=False)
+    senha = Column(String(50), nullable=False)
     
     def __init__(self, user_nome, senha):
         self.user_nome = user_nome

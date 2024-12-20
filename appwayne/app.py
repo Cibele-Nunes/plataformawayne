@@ -2,6 +2,7 @@ from flask import Flask
 import pymysql
 from flask_login import LoginManager
 from appwayne.database import db, migrate
+
 from dotenv import load_dotenv
 
 
@@ -12,12 +13,12 @@ load_dotenv()
 
 def create_app():
     app = Flask(__name__)
-
+    
     app.config.from_prefixed_env()
     app.config['SECRET_KEY']
     app.config['SQLALCHEMY_DATABASE_URI']
     app.config['SQLALCHEMY_TRACK_MODIFICATION']
-
+    
     db.init_app(app)
     migrate.init_app(app, db)
 

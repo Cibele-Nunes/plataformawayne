@@ -1,5 +1,6 @@
-from flask import render_template, Blueprint, flash, redirect, url_for
-from flask_wtf import FlaskForm
+from flask import render_template, Blueprint, flash, redirect, url_for, request
+from appwayne.models import Register
+from appwayne.database import db
 from appwayne.forms import RegisterForm, LoginForm
 
 main_blueprint = Blueprint('main', __name__)
@@ -10,6 +11,23 @@ def home():
 
 @main_blueprint.route('/register', methods=['GET', 'POST'])
 def register():
+    if request.method == 'GET':
+        return render_template('register.html')
+    elif request.method == 'POST':
+        DataCadastro = request.form['DataCadastro']
+        user_nome = request.form['user_nome']
+        nome = request.form['nome']
+        sobrenome = request.form['sobrenome']
+        email = request.form['email']
+        telefone = request.form['telefone']
+        senha = request.form['senha']
+        confirm_senha = request.form['confirm_senha']
+
+        usuario = Register(DataCadastro=DataCadastro, user_nome=user_nome, nome=nome, sobrenome=sobrenome, email=email, telefone=telefone, senha=senha, confirm_senha=confirm_senha)
+        db.session.add(usuario)
+        db.session.commit()
+        return redirect(url_for('login_visit.html'))
+
     form = RegisterForm()
     if form.validate_on_submit():
         flash('Cadastro feito com sucesso!', 'sucess')
