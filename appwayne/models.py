@@ -14,8 +14,7 @@ class Register(Base):
     senha = Column(String(50), nullable=False) 
     confirm_senha = Column(String(50), nullable=False)
 
-    def __init__(self, DataCadastro, user_nome, nome, sobrenome, email, telefone, senha, confirm_senha):
-        self.DataCadastro = DataCadastro
+    def __init__(self, user_nome, nome, sobrenome, email, telefone, senha, confirm_senha):
         self.user_nome = user_nome
         self.nome = nome
         self.sobrenome = sobrenome

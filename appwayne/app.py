@@ -21,9 +21,7 @@ def create_app():
     
     db.init_app(app)
     migrate.init_app(app, db)
-
     
-
     with app.app_context(): 
         from appwayne.views import main_blueprint 
         app.register_blueprint(main_blueprint)

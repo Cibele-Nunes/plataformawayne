@@ -14,6 +14,9 @@ body{
     background-color: #626572;
     height: 60px;
 }
+.container{
+    display: flex;
+}
 .perg_frequentes{
     background-color: #bbbab3;
     float: left;
@@ -41,9 +44,10 @@ body{
     text-align: center;
     
 }
-span{
+.span{
     font-size: 16px;
     color: #0c0c0c;
+    margin-left: 3px;
     display: block;
     text-align: justify;
     position: absolute;
@@ -52,8 +56,8 @@ span{
     transition: .5s;
     opacity: .4;
 }
-input{
-    background-color: #a09d87;
+.entrada{
+    background-color:#a09d87;
     margin-top: 15px;
     margin-bottom: 10px;
     padding-left: 6px;
@@ -61,32 +65,37 @@ input{
     font-size: 14px;
     border: 2px solid #818b8c;
 }
-input[type=text]:focus{
+.entrada[type=text]:focus{
     outline: none;
     border: 1px solid #e9aa36;
 
 }
-input:focus ~ span, input:valid ~ span{
+.entrada:focus ~ span, .entrada:valid ~ span{
     transform: translateY(-30px);
     font-size: 14px;
     opacity: 1;
 }
+.divuser_nome{
+    width: 50%;
+}
 .total-nome{
-    width: 68%;
+    width: 60%;
     padding: 0;
-    margin: 0;
+    margin-left: 40px;
+    margin-right: 40px;
     display: inline-block;
+    align-content: center;
 }
 .divnome{
-    width: 40%;
-    margin-left: 40px;
+    width: 50%;
+    margin: 0;
     padding: 0;
     float: left;
     position: relative;
 }
 .divsobrenome{
-    width: 44%;
-    margin-right: 40px;
+    width: 50%;
+    margin: 0;
     padding: 0;
     float: right;
     position: relative;
@@ -98,7 +107,7 @@ input:focus ~ span, input:valid ~ span{
     position: relative;
     display: inline-block;
 }
-button{
+.botao{
     background-color: #bbbab3;
     border: 0;
     border-radius: 50px;
@@ -113,7 +122,7 @@ button{
     transition: backgroud-color .3s ease;
     cursor: pointer;
 }
-button:hover{
+.botao:hover{
     background-color: #c0bc9f;
 }
 
