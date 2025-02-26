@@ -114,6 +114,8 @@ body {
       font-size: 15px;
       box-sizing: border-box;
     }
-  
+    .login-wrapper .login-wrapper-footer-text a.text-reset{
+      font-weight: bold;
+    }
 
 /*# sourceMappingURL=login.css.map */

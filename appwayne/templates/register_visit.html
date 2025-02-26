@@ -33,14 +33,14 @@
                         {% endfor %}
                     </div>
                     <div class="total-nome">
-                        <div class="divnome">
+                        <div class="prim_nome">
                             {{ form.nome(class="entrada", style="width= 100%") }}
-                            <span class="span">Digite o seu nome</span>
+                            <span class="span">Primeiro nome</span>
                             {% for error in form.nome.errors %}
                             <span class="text-danger">{{ error }}</span>
                             {% endfor %}
                         </div>
-                        <div class="divsobrenome">
+                        <div class="seg_nome">
                             {{ form.sobrenome(class="entrada", style="width= 100%") }}
                             <span class="span">Seu sobrenome</span>
                             {% for error in form.nome.errors %}
@@ -56,13 +56,6 @@
                         {% endfor %}
                     </div>
                     <div class="outrosdados">
-                        {{ form.telefone(class="entrada", style="width: 25%;") }}
-                        <span class="span" style="margin-left: 38%;">Número do telefone</span>
-                        {% for error in form.telefone.errors %}
-                        <span class="text-danger">{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                    <div class="outrosdados">
                         {{ form.senha(class="entrada", style="width: 30%;") }}
                         <span class="span" style="margin-left: 36%;">Crie a sua senha</span>
                         {% for error in form.senha.errors %}
@@ -73,6 +66,13 @@
                         {{ form.confirm_senha(class="entrada", style="width: 30%;") }}
                         <span class="span" style="margin-left: 36%;">Confirme a sua senha</span>
                         {% for error in form.confirm_senha.errors %}
+                        <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="outrosdados">
+                        <label>{{ form.newsletters.label }}</label><br>
+                        {{ form.newsletters(class="form-check-input") }}
+                        {% for error in form.newsletters.errors %}
                         <span class="text-danger">{{ error }}</span>
                         {% endfor %}
                     </div>

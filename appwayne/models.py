@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Date
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, Date
 from datetime import date
 from appwayne.database import Base
 
@@ -10,18 +10,19 @@ class Register(Base):
     nome = Column(String(50), nullable=False) 
     sobrenome = Column(String(50), nullable=True) 
     email = Column(String(50), nullable=False) 
-    telefone = Column(String(20), nullable=True) 
     senha = Column(String(50), nullable=False) 
     confirm_senha = Column(String(50), nullable=False)
+    newsletters = Column(Boolean, nullable=False)
 
-    def __init__(self, user_nome, nome, sobrenome, email, telefone, senha, confirm_senha):
+
+    def __init__(self, user_nome, nome, sobrenome, email, senha, confirm_senha, newsletters):
         self.user_nome = user_nome
         self.nome = nome
         self.sobrenome = sobrenome
         self.email = email
-        self.telefone = telefone
         self.senha = senha
         self.confirm_senha = confirm_senha
+        self.newsletters = newsletters
     
 class Login(Base):
     __tablename__ = 'usuarios'

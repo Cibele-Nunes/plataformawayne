@@ -16,11 +16,12 @@ def register_visit():
         nome = request.form['nome']
         sobrenome = request.form['sobrenome']
         email = request.form['email']
-        telefone = request.form['telefone']
         senha = request.form['senha']
         confirm_senha = request.form['confirm_senha']
+        newsletters = request.form['newsletter']
 
-        usuario = Register(user_nome=user_nome, nome=nome, sobrenome=sobrenome, email=email, telefone=telefone, senha=senha, confirm_senha=confirm_senha)
+        usuario = Register(user_nome=user_nome, nome=nome, sobrenome=sobrenome, email=email, senha=senha, confirm_senha=confirm_senha, newsletters=newsletters)
+        
         db.session.add(usuario)
         db.session.commit()
         
