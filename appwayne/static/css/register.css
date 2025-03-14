@@ -1,0 +1,134 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.cabeçario{
+    background-color:#818b8c;
+    height: 60px;
+}
+.container{
+    height: 100%;
+    display: flex;
+}
+.perg_frequentes{
+    float: left;
+    position: relative;
+    width: 50%;
+    height: 100vh;
+}
+.formulario{
+    background-color: #a09d87;
+    float: right;
+    position: relative;
+    width: 50%;
+    height: 100vh;
+}
+h2{
+    color: #525563;
+    margin-left: 30px; 
+    margin-top: 30px;
+}
+h3{
+    color: #525563;
+    margin: 30px; 
+    margin-bottom: 15px;
+}
+.quest-form{
+    width: 90%;
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.total-nome{
+    width: 80%;
+    margin: auto;
+    margin-top: 60px;
+    position: relative;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.campo{
+    width: 80%;
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.total-nome label{
+    margin: 10px 20px 15px 20px;
+}
+.campo label{
+    margin: 15px auto 15px auto;
+    
+}
+label{
+    width: 35%;
+    height: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+label .entrada{
+    background-color:#a09d87;
+    width: 100%;
+    font-size: 16px;
+    color: #626572;
+    padding-left: 5px;
+    position: relative;
+    display: flex;
+    border: none;
+    border-bottom: 1px solid #525563;
+    outline: none;
+}
+label .entrada::placeholder{
+    color: transparent;
+}
+label .rotulo{
+    font-size: 16px;
+    color: rgba(98, 101, 114);
+    text-align: justify;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    transition: 0.3s;
+}
+label .entrada:focus,
+label .entrada:not(:placeholder-shown)
+{
+    outline: none;
+    border-bottom: 2px solid rgb(233, 170, 54);
+}
+label .entrada:focus + .rotulo,
+label .entrada:not(:placeholder-shown) + .rotulo
+{
+    top: -16px;
+    font-size: 14px;
+    color: rgba(98, 101, 114);
+}
+.botao{
+    background-color: #bbbab3;
+    border: 0;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #626572;
+    margin: 40px;
+    width: 20%;
+    height: 35px;
+    float: right;
+    position: relative;
+    display: block;
+    transition: backgroud-color .3s ease;
+    cursor: pointer;
+}
+.botao:hover{
+    background-color: #c0bc9f;
+}

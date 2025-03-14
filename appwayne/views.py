@@ -9,8 +9,8 @@ main_blueprint = Blueprint('main', __name__)
 def home():
     return render_template('home.html')
 
-@main_blueprint.route('/register_visit', methods=['GET', 'POST'])
-def register_visit():
+@main_blueprint.route('/register', methods=['GET', 'POST'])
+def register():
     if request.method == 'POST':
         user_nome = request.form['user_nome']
         nome = request.form['nome']
@@ -31,7 +31,7 @@ def register_visit():
     if form.validate_on_submit():
         flash('Cadastro feito com sucesso!', 'sucess')
         return redirect(url_for('login_visit.html'))
-    return render_template('register_visit.html', form=form)
+    return render_template('register.html', form=form)
     
 @main_blueprint.route('/login_visit', methods=['GET', 'POST'])
 def login_visit():

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{url_for('static', filename= 'image/favicon.ico')}}" type="image/x-icon">
+    <title>Página de Cadastro</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/register.css')}}">
+</head>
+
+<body>
+    <div class="cabeçario"></div>
+    <div class="container">
+        <div class="perg_frequentes">
+            <div><label for="">Questões?</label></div>
+            <br>
+            <div>
+                <label for="">Confira nossas<a href="">perguntas frequentesa</a></label>
+            </div>
+        </div>
+        <div class="formulario">
+            <h2>Agradecemos por se inscrever.</h2>
+            <h3>Conte-nos um pouco sobre você:</h3>
+            <form action="{{ url_for('main.register') }}" method="POST" class="quest-form">
+                {{ form.hidden_tag() }}
+                <div class="total-nome">
+                    <label for="nome">
+                        {{ form.nome(class="entrada", type="text", placeholder="nome") }}
+                        <span class="rotulo">Digite o seu nome</span>
+                    </label>
+                    {% for error in form.nome.errors %} 
+                    <label for="" class="text-danger">{{ error }}</label>
+                    {% endfor %}
+                    <label for="sobrenome">
+                        {{ form.sobrenome(class="entrada", type="text", placeholder="sobrenome") }}
+                        <span class="rotulo">Seu sobrenome</span>
+                    </label>
+                    {% for error in form.sobrenome.errors %} 
+                    <label for="" class="text-danger">{{ error }}</label>
+                    {% endfor %}
+                </div>
+                <div class="campo">
+                    <label for="user_nome">
+                        {{ form.user_nome(class="entrada", type="text", placeholder="usuário") }}
+                        <span class="rotulo">Crie o seu nome de usuário</span>
+                    </label>
+                    {% for error in form.user_nome.errors %}
+                    <label for="" class="text-danger">{{ error }}</label>
+                    {% endfor %}
+                    <label for="email">
+                        {{ form.email(class="entrada", type="email", placeholder="email") }}
+                        <span class="rotulo">E-mail</span>
+                    </label>
+                    {% for error in form.email.errors %}
+                    <label for="" class="text-danger">{{ error }}</label>
+                    {% endfor %}
+                    <label for="senha">
+                        {{ form.senha(class="entrada", type="password", placeholder="senha") }}
+                        <span class="rotulo">Crie a sua senha</span>
+                    </label>
+                    {% for error in form.senha.errors %}
+                    <label for="" class="text-danger">{{ error }}</label>
+                    {% endfor %}
+                    <label for="confirm_senha">
+                        {{ form.confirm_senha(class="entrada", type="password", placeholder="confirme senha") }}
+                        <span class="rotulo">Confirme a sua senha</span>
+                    </label>
+                    {% for error in form.confirm_senha.errors %}
+                    <label for="" class="text-danger">{{ error }}</label>
+                    {% endfor %}
+                </div>
+                {{ form.submit(class="botao") }}
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
