@@ -10,16 +10,66 @@ body{
 .cabeçario{
     background-color:#818b8c;
     height: 60px;
+    display: flex;
+}
+.cabeçario img{
+    width: 35px;
+    height: 35px;
+    margin: auto;
 }
 .container{
     height: 100%;
     display: flex;
 }
 .perg_frequentes{
-    float: left;
-    position: relative;
     width: 50%;
     height: 100vh;
+    float: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
+}
+.quest_icon{
+    width: 90%;
+    margin: 20px 20px 0 75px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+.quest_icon p{
+    margin: 7px 3px 3px 0;
+    font-size: 18px;
+    color: #626572;
+}
+.icon_perg_freq{
+    width: 25px;
+    height: 25px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+.perguntas{
+    width: 90%;
+    margin: 3px 20px 0 75px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+.perguntas p{
+    margin: 0 3px 0 0;
+    font-size: 18px;
+    color: #626572;
+}
+p > a{
+    color: #626572;
+    text-decoration: none;
+    font-weight: bold;
+}
+p a:visited{
+    text-decoration: none;
+    color: #626572;
 }
 .formulario{
     background-color: #a09d87;
@@ -31,12 +81,12 @@ body{
 h2{
     color: #525563;
     margin-left: 30px; 
-    margin-top: 30px;
+    margin-top: 20px;
 }
 h3{
     color: #525563;
-    margin: 30px; 
-    margin-bottom: 15px;
+    margin: 80px; 
+    margin-bottom: 0;
 }
 .quest-form{
     width: 90%;
@@ -48,7 +98,7 @@ h3{
 .total-nome{
     width: 80%;
     margin: auto;
-    margin-top: 60px;
+    margin-top: 25px;
     position: relative;
     display:flex;
     flex-direction: row;
@@ -131,4 +181,5 @@ label .entrada:not(:placeholder-shown) + .rotulo
 }
 .botao:hover{
     background-color: #c0bc9f;
+    border: 2px solid rgb(233, 170, 54);
 }

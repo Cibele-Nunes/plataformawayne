@@ -10,13 +10,18 @@
 </head>
 
 <body>
-    <div class="cabeçario"></div>
+    <div class="cabeçario">
+        <img src="{{ url_for('static', filename='image/marca_logo_wayne.png') }}" alt="marca_logo_wayne">
+    </div>
     <div class="container">
         <div class="perg_frequentes">
-            <div><label for="">Questões?</label></div>
-            <br>
-            <div>
-                <label for="">Confira nossas<a href="">perguntas frequentesa</a></label>
+            <div class="quest_icon">
+                <img class="icon_perg_freq" src="{{ url_for('static', filename='image/icone-interrogation-question.png') }}" alt="perg_frequentes">
+                <p>Questões?</p>
+            </div>
+            <div class="perguntas">
+                <p>Confira nossas</p>
+                <p><a href="">perguntas frequentes.</a></p>
             </div>
         </div>
         <div class="formulario">
