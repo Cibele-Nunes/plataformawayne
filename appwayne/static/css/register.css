@@ -116,7 +116,7 @@ h3{
 }
 .campo label{
     margin: 15px auto 15px auto;
-    
+   
 }
 label{
     width: 35%;
@@ -162,6 +162,57 @@ label .entrada:not(:placeholder-shown) + .rotulo
     top: -16px;
     font-size: 14px;
     color: rgba(98, 101, 114);
+}
+.news{
+    width: 80%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.news p .news-quest{
+    width: 80%;
+    font-size: 16px;
+    color: #525563;
+}
+.form-check-input{
+    list-style: none;
+    width: 80%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.form-check-input li{
+    width: 80%;
+    height: 25px;
+    position: relative;
+    display: flex;
+    margin: 5px 0 5px 10px;
+    font-size: 16px;
+    color: #525563;
+}
+.form-check-input li input{
+    display: none;
+}
+.form-check-input li input + label:before
+ {
+    content: "";
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1px solid #525563;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: -5px;
+}
+.form-check-input li label{
+    display: inline-block;
+}
+.form-check-input li input:checked + label::before{
+    background-color: rgb(233, 170, 54);
+    box-sizing: border-box;
+    border: 5px solid #ffffff;
+    padding: 4px;
 }
 .botao{
     background-color: #bbbab3;

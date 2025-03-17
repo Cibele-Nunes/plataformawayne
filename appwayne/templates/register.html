@@ -75,6 +75,13 @@
                     <label for="" class="text-danger">{{ error }}</label>
                     {% endfor %}
                 </div>
+                <div class="news"> 
+                    <p class="solicit">{{ form.newsletters.label(class="news-quest") }}</p>
+                    {{ form.newsletters(class="form-check-input") }} 
+                    {% for error in form.newsletters.errors %} 
+                    <span class="text-danger">{{ error }}</span> 
+                    {% endfor %} 
+                </div>
                 {{ form.submit(class="botao") }}
             </form>
         </div>

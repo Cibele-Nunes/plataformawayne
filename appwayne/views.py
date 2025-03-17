@@ -18,7 +18,7 @@ def register():
         email = request.form['email']
         senha = request.form['senha']
         confirm_senha = request.form['confirm_senha']
-        newsletters = request.form['newsletter']
+        newsletters = request.form['newsletters']
 
         usuario = Register(user_nome=user_nome, nome=nome, sobrenome=sobrenome, email=email, senha=senha, confirm_senha=confirm_senha, newsletters=newsletters)
         
