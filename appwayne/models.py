@@ -1,8 +1,9 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, Date
 from datetime import date
+from flask_login import UserMixin
 from appwayne.database import Base
 
-class Register(Base):
+class Register(Base, UserMixin):
     __tablename__ = 'registers'
     id = Column(Integer, primary_key=True, autoincrement=True, unique=True) 
     DataCadastro = Column(Date, default=date.today, nullable=False) 
@@ -12,17 +13,17 @@ class Register(Base):
     email = Column(String(50), nullable=False) 
     senha = Column(String(50), nullable=False) 
     confirm_senha = Column(String(50), nullable=False)
-    newsletters = Column(Boolean, nullable=False)
+    newsletter = Column(Boolean, nullable=False)
 
 
-    def __init__(self, user_nome, nome, sobrenome, email, senha, confirm_senha, newsletters):
+    def __init__(self, user_nome, nome, sobrenome, email, senha, confirm_senha, newsletter):
         self.user_nome = user_nome
         self.nome = nome
         self.sobrenome = sobrenome
         self.email = email
         self.senha = senha
         self.confirm_senha = confirm_senha
-        self.newsletters = newsletters
+        self.newsletter = newsletter
     
 class Login(Base):
     __tablename__ = 'usuarios'

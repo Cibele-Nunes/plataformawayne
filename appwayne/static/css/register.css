@@ -167,45 +167,23 @@ label .entrada:not(:placeholder-shown) + .rotulo
     width: 80%;
     position: relative;
     display: flex;
-    flex-direction: column;
-}
-.news p .news-quest{
-    width: 80%;
-    font-size: 16px;
-    color: #525563;
+    flex-direction: row;
 }
 .form-check-input{
-    list-style: none;
-    width: 80%;
+    margin: 15px 8px 20px 20px;
+    vertical-align: middle;
+    text-align: justify;
     position: relative;
-    display: flex;
-    flex-direction: column;
-}
-.form-check-input li{
-    width: 80%;
-    height: 25px;
-    position: relative;
-    display: flex;
-    margin: 5px 0 5px 10px;
-    font-size: 16px;
-    color: #525563;
-}
-.form-check-input li input{
-    display: none;
-}
-.form-check-input li input + label:before
- {
-    content: "";
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: #ffffff;
-    border: 1px solid #525563;
     display: inline-block;
-    margin-right: 10px;
-    margin-bottom: -5px;
+    
 }
-.form-check-input li label{
+.solicit{
+    width: 80%;
+    color: #525563;
+    margin: 20px 0;
+    vertical-align: middle;
+    text-align: justify;
+    position: relative;
     display: inline-block;
 }
 .form-check-input li input:checked + label::before{
@@ -232,5 +210,5 @@ label .entrada:not(:placeholder-shown) + .rotulo
 }
 .botao:hover{
     background-color: #c0bc9f;
-    border: 2px solid rgb(233, 170, 54);
+    border: 1px solid rgb(233, 170, 54);
 }

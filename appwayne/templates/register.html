@@ -75,10 +75,10 @@
                     <label for="" class="text-danger">{{ error }}</label>
                     {% endfor %}
                 </div>
-                <div class="news"> 
-                    <p class="solicit">{{ form.newsletters.label(class="news-quest") }}</p>
-                    {{ form.newsletters(class="form-check-input") }} 
-                    {% for error in form.newsletters.errors %} 
+                <div class="news">
+                    <input type="checkbox" class="form-check-input" name="newsletter" value="true">
+                    <label for="newsletter" class="solicit">Marque, se dseja receber nossas newsletters.</label>
+                    {% for error in form.newsletter.errors %} 
                     <span class="text-danger">{{ error }}</span> 
                     {% endfor %} 
                 </div>

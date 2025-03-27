@@ -1,8 +1,7 @@
 from flask import Flask
 import pymysql
-from flask_login import LoginManager
 from appwayne.database import db, migrate
-
+from auth import lm
 from dotenv import load_dotenv
 
 
@@ -20,7 +19,10 @@ def create_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATION']
     
     db.init_app(app)
+    lm.init_app(app)
     migrate.init_app(app, db)
+
+    
     
     with app.app_context(): 
         from appwayne.views import main_blueprint 
