@@ -7,8 +7,8 @@ class RegistrationForm(FlaskForm):
     sobrenome = StringField('Seu sobrenome', validators=[InputRequired(), Length(min=3, max=50)])
     user_nome = StringField('Crie o seu nome de usuário', validators=[DataRequired(), Length(min=3, max=50)])
     email = StringField('E-mail', validators=[Email(message='E-mail inválido!'), InputRequired(), Length(min=4, max=50)])
-    senha = PasswordField('Crie a sua senha', validators=[DataRequired(), EqualTo('confirm_senha', message='As senhas devem ser iguais'), Length(min=6, max=50)])
-    confirm_senha = PasswordField('Confirme a sua senha', validators=[DataRequired(), Length(min=6, max=50)])
+    senha = PasswordField('Crie a sua senha', validators=[InputRequired(), EqualTo('confirm_senha', message='As senhas devem ser iguais'), Length(min=6, max=50)])
+    confirm_senha = PasswordField('Confirme a sua senha', validators=[InputRequired(), Length(min=6, max=50)])
     newsletter = BooleanField('Marque, se dseja receber nossas newsletters.', default='checked')
     submit = SubmitField('Cadastrar')
 

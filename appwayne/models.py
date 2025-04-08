@@ -11,21 +11,19 @@ class Register(Base, UserMixin):
     nome = Column(String(50), nullable=False) 
     sobrenome = Column(String(50), nullable=True) 
     email = Column(String(50), nullable=False) 
-    senha = Column(String(50), nullable=False) 
-    confirm_senha = Column(String(50), nullable=False)
+    senha = Column(String(260), nullable=False) 
     newsletter = Column(Boolean, nullable=False)
 
 
-    def __init__(self, user_nome, nome, sobrenome, email, senha, confirm_senha, newsletter):
+    def __init__(self, user_nome, nome, sobrenome, email, senha, newsletter):
         self.user_nome = user_nome
         self.nome = nome
         self.sobrenome = sobrenome
         self.email = email
         self.senha = senha
-        self.confirm_senha = confirm_senha
         self.newsletter = newsletter
     
-class Login(Base):
+class Login(Base, UserMixin):
     __tablename__ = 'usuarios'
     id = Column(Integer, ForeignKey('registers.id'), primary_key=True, nullable=False)
     user_nome = Column(String(50), nullable=False)

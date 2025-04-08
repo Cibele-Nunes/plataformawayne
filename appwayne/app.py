@@ -1,7 +1,7 @@
 from flask import Flask
 import pymysql
 from appwayne.database import db, migrate
-from auth import lm
+from appwayne.auth import lm
 from dotenv import load_dotenv
 
 

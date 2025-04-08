@@ -9,7 +9,7 @@ class Base(DeclarativeBase):
 db = SQLAlchemy(model_class=Base)
 migrate = Migrate()
 Session = sessionmaker(bind=db)
-session = Session()
+
 
 # con = mysql.connector.connect(
 #     buffered=True,
