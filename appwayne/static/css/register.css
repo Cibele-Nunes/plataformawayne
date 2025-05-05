@@ -163,28 +163,18 @@ label .entrada:not(:placeholder-shown) + .rotulo
     font-size: 14px;
     color: rgba(98, 101, 114);
 }
-.news{
+.form-group{
     width: 80%;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-}
-.form-check-input{
-    margin: 15px 8px 20px 20px;
-    vertical-align: middle;
-    text-align: justify;
-    position: relative;
-    display: inline-block;
+    margin-left: 85px;
     
 }
 .solicit{
     width: 80%;
     color: #525563;
     margin: 20px 0;
-    vertical-align: middle;
     text-align: justify;
     position: relative;
-    display: inline-block;
+    display: inline;
 }
 .form-check-input li input:checked + label::before{
     background-color: rgb(233, 170, 54);

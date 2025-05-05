@@ -1,7 +1,11 @@
 from flask import Flask
 import pymysql
-from appwayne.database import db, migrate
-from appwayne.auth import lm
+from flask_security import SQLAlchemyUserDatastore
+from flask_security.utils import config_value
+from appwayne.database import db, security, migrate
+from appwayne.models import Role, User
+from appwayne.auth import lm, session
+from appwayne.config import Config
 from dotenv import load_dotenv
 
 
@@ -13,14 +17,16 @@ load_dotenv()
 def create_app():
     app = Flask(__name__)
     
-    app.config.from_prefixed_env()
-    app.config['SECRET_KEY']
-    app.config['SQLALCHEMY_DATABASE_URI']
-    app.config['SQLALCHEMY_TRACK_MODIFICATION']
-    
+    app.config.from_object(Config)
+
     db.init_app(app)
     lm.init_app(app)
     migrate.init_app(app, db)
+    user_datastore = SQLAlchemyUserDatastore(db.session, User, Role)
+    security.init_app(app, user_datastore)
+    
+    
+    
 
     
     

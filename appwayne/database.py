@@ -1,15 +1,15 @@
 #import mysql.connector
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import DeclarativeBase
 from flask_migrate import Migrate
-from sqlalchemy.orm import DeclarativeBase, sessionmaker
+from flask_security import Security
 
 class Base(DeclarativeBase):
     pass
 
 db = SQLAlchemy(model_class=Base)
+security = Security()
 migrate = Migrate()
-Session = sessionmaker(bind=db)
-
 
 # con = mysql.connector.connect(
 #     buffered=True,

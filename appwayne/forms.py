@@ -9,12 +9,16 @@ class RegistrationForm(FlaskForm):
     email = StringField('E-mail', validators=[Email(message='E-mail inválido!'), InputRequired(), Length(min=4, max=50)])
     senha = PasswordField('Crie a sua senha', validators=[InputRequired(), EqualTo('confirm_senha', message='As senhas devem ser iguais'), Length(min=6, max=50)])
     confirm_senha = PasswordField('Confirme a sua senha', validators=[InputRequired(), Length(min=6, max=50)])
-    newsletter = BooleanField('Marque, se dseja receber nossas newsletters.', default='checked')
+    newsletter = BooleanField('Marque, se dseja receber nossas newsletters.')
     submit = SubmitField('Cadastrar')
 
 class LoginForm(FlaskForm):
-    user_nome = StringField('Seu nome de usuário cadastrado', validators=[InputRequired(message='Usuário não cadastrado!'), Length(min=4, max=50)])
+    user_nome = StringField('Nome de usuário', validators=[InputRequired(message='Usuário não cadastrado!'), Length(min=4, max=50)])
     senha = PasswordField('Senha', validators=[InputRequired(), Length(min=6, max=50)])
-    manter_conexão = BooleanField('Continuar conectado.')
-    lembre_me = BooleanField('Lembre-me.')
+    lembre_me = BooleanField('Marque, para continuar conectado.')
+    nova_senha = SubmitField('Esqueceu sua senha?')
     botao = SubmitField('Login')
+
+class ForgotPasswordForm(FlaskForm):
+    email = StringField('E-mail', validators=[Email(message='E-mail inválido!'), InputRequired(message='Digite seu e-mail.'), Length(min=4, max=50)])
+    submit = SubmitField('Enviar')

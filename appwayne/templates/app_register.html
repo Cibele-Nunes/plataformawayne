@@ -1,3 +1,5 @@
+{% set title = title|default(_fsdomain('Register')) %}
+{% from "security/_macros.html" import render_field_with_errors, render_field, render_form_errors, render_field_errors %}
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -27,62 +29,63 @@
         <div class="formulario">
             <h2>Agradecemos por se inscrever.</h2>
             <h3>Conte-nos um pouco sobre você:</h3>
-            <form action="{{ url_for('main.register') }}" method="POST" class="quest-form">
-                {{ form.hidden_tag() }}
+            <form action="{{ url_for('main.app_register') }}" method="POST" class="quest-form">
+                {{ register_user_form.hidden_tag() }}
+                {{ render_form_errors(register_user_form) }}
                 <div class="total-nome">
                     <label for="nome">
-                        {{ form.nome(class="entrada", type="text", placeholder="nome") }}
+                        {{ register_user_form.nome(class="entrada", type="text", placeholder="nome") }}
                         <span class="rotulo">Digite o seu nome</span>
                     </label>
-                    {% for error in form.nome.errors %} 
+                    {% for error in register_user_form.nome.errors %} 
                     <label for="" class="text-danger">{{ error }}</label>
                     {% endfor %}
                     <label for="sobrenome">
-                        {{ form.sobrenome(class="entrada", type="text", placeholder="sobrenome") }}
+                        {{ register_user_form.sobrenome(class="entrada", type="text", placeholder="sobrenome") }}
                         <span class="rotulo">Seu sobrenome</span>
                     </label>
-                    {% for error in form.sobrenome.errors %} 
+                    {% for error in register_user_form.sobrenome.errors %} 
                     <label for="" class="text-danger">{{ error }}</label>
                     {% endfor %}
                 </div>
                 <div class="campo">
                     <label for="user_nome">
-                        {{ form.user_nome(class="entrada", type="text", placeholder="usuário") }}
+                        {{ register_user_form.user_nome(class="entrada", type="text", placeholder="usuário") }}
                         <span class="rotulo">Crie o seu nome de usuário</span>
                     </label>
-                    {% for error in form.user_nome.errors %}
+                    {% for error in register_user_form.user_nome.errors %}
                     <label for="" class="text-danger">{{ error }}</label>
                     {% endfor %}
                     <label for="email">
-                        {{ form.email(class="entrada", type="email", placeholder="email") }}
+                        {{ register_user_form.email(class="entrada", type="email", placeholder="email") }}
                         <span class="rotulo">E-mail</span>
                     </label>
-                    {% for error in form.email.errors %}
+                    {% for error in register_user_form.email.errors %}
                     <label for="" class="text-danger">{{ error }}</label>
                     {% endfor %}
                     <label for="senha">
-                        {{ form.senha(class="entrada", type="password", placeholder="senha") }}
+                        {{ register_user_form.senha(class="entrada", type="password", placeholder="senha") }}
                         <span class="rotulo">Crie a sua senha</span>
                     </label>
-                    {% for error in form.senha.errors %}
+                    {% for error in register_user_form.senha.errors %}
                     <label for="" class="text-danger">{{ error }}</label>
                     {% endfor %}
                     <label for="confirm_senha">
-                        {{ form.confirm_senha(class="entrada", type="password", placeholder="confirme senha") }}
+                        {{ register_user_form.confirm_senha(class="entrada", type="password", placeholder="confirme senha") }}
                         <span class="rotulo">Confirme a sua senha</span>
                     </label>
-                    {% for error in form.confirm_senha.errors %}
+                    {% for error in register_user_form.confirm_senha.errors %}
                     <label for="" class="text-danger">{{ error }}</label>
                     {% endfor %}
                 </div>
-                <div class="news">
-                    <input type="checkbox" class="form-check-input" name="newsletter" value="true">
-                    <label for="newsletter" class="solicit">Marque, se dseja receber nossas newsletters.</label>
-                    {% for error in form.newsletter.errors %} 
+                <div class="form-group">
+                    {{ register_user_form.newsletter() }}
+                    {{ register_user_form.newsletter.label(class="solicit") }}
+                    {% for error in register_user_form.newsletter.errors %} 
                     <span class="text-danger">{{ error }}</span> 
                     {% endfor %} 
                 </div>
-                {{ form.submit(class="botao") }}
+                {{ register_user_form.submit(class="botao") }}
             </form>
         </div>
     </div>
