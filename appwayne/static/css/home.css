@@ -30,8 +30,8 @@ body {
 
 /* Color Theme Swatches in RGBA */
 .SFC-GRAPHIC-IDENTITY-1-rgba { color: #626572; }
-.SFC-GRAPHIC-IDENTITY-2-rgba { color: #818b8c; }
-.SFC-GRAPHIC-IDENTITY-3-rgba { color: #d8d6d2; }
+.SFC-GRAPHIC-IDENTITY-2-rgba { color: rgb(129, 139, 140); }
+.SFC-GRAPHIC-IDENTITY-3-rgba { color: rgb(216, 214, 210); }
 .SFC-GRAPHIC-IDENTITY-4-rgba { color: #a09d87; }
 .SFC-GRAPHIC-IDENTITY-5-rgba { color: #0c0c0c; }
-.SFC-GRAPHIC-IDENTITY-5-rgba { color: #b78f1f;}
+.SFC-GRAPHIC-IDENTITY-5-rgba { color: rgb(183, 143, 31);}
