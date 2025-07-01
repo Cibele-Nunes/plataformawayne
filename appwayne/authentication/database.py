@@ -11,6 +11,8 @@ db = SQLAlchemy(model_class=Base)
 security = Security()
 migrate = Migrate()
 
+
+
 # con = mysql.connector.connect(
 #     buffered=True,
 #     host = 'localhost',

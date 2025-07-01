@@ -1,84 +1,98 @@
-{% from "security/_macros.html" import render_field_with_errors, render_field, render_field_errors, render_form_errors, prop_next %}
-{% set title = title|default(_fsdomain('Login')) %}
+{% from "security/_macros.html" import render_field_with_errors, render_field,
+render_field_errors, render_form_errors, prop_next %} {% set title =
+title|default(_fsdomain('Login')) %}
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="{{ url_for('static', filename='image/favicon.ico') }}" type="image/x-icon">
-  <title>Login | WAYNE Enterprises</title>
-  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/app_login.css') }}">
-</head>
-<body>
-  <main>
-    <div class="container-fluid">
-      <div class="row">
-        <!-- Lado da esquerda: formulário e logotipo -->
-        <div class="col-sm-6 login-section-wrapper">
-          <div class="brand-wrapper">
-            <a href="{{ url_for('main.home') }}">
-              <img src="{{ url_for('static', filename='image/LOGO-WAYNE.png') }}" alt="logo">
-            </a>
-          </div>
-          <div class="login-wrapper my-auto">
-            <!-- Exibe mensagens flash (ou as mensagens do Flask-Security) -->
-            {% include "security/_messages.html" %}
-            <h1 class="login-title">{{ _fsdomain('Login') }}</h1>
-            <!-- Formulário de login -->
-            <form action="{{ url_for_security('login') }}{{ prop_next() }}" method="post" name="login_user_form" class="form">
-              {{ login_user_form.hidden_tag() }}
-              {{ render_form_errors(login_user_form) }}
-              {# Escolhe qual campo de identidade renderizar, de acordo com a configuração: #}
-              {% if login_user_form.email and "email" in identity_attributes %}
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='image/favicon.ico') }}" type="image/x-icon" />
+    <title>Login | WAYNE Enterprises</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app_login.css') }}" />
+  </head>
+
+  <body>
+    <main>
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Lado da esquerda: formulário e logotipo -->
+          <div class="col-sm-6 login-section-wrapper">
+            <div class="brand-wrapper">
+              <a href="{{ url_for('auth_blueprint.home') }}">
+                <img src="{{ url_for('static', filename='image/LOGO-WAYNE.png') }}" alt="logo" />
+              </a>
+            </div>
+            <div class="login-wrapper my-auto">
+              <!-- Exibe mensagens flash (ou as mensagens do Flask-Security) -->
+              {% include "security/_messages.html" %}
+              <h1 class="login-title">{{ _fsdomain('Login') }}</h1>
+              <!-- Formulário de login -->
+              <form action="{{ url_for_security('login') }}{{ prop_next() }}" method="post" name="login_user_form"
+                class="form">
+                {{ login_user_form.hidden_tag() }} {{
+                render_form_errors(login_user_form) }} {# Escolhe qual campo de
+                identidade renderizar, de acordo com a configuração: #} {% if
+                login_user_form.email and "email" in identity_attributes %}
                 <div class="form-group">
                   {{ render_field_with_errors(login_user_form.email) }}
                 </div>
-              {% elif login_user_form.username and "username" in identity_attributes %}
+                {% elif login_user_form.username and "username" in
+                identity_attributes %}
                 <div class="form-group">
                   {{ render_field_with_errors(login_user_form.username) }}
                 </div>
-              {% else %}
+                {% else %}
                 <!-- Caso você use um campo personalizado, como "user_nome" -->
                 <div class="form-group">
-                  {{ login_user_form.user_nome.label(class="form-label", for="user_nome") }}
-                  {{ login_user_form.user_nome(class="form-control", placeholder="nome de usuário cadastrado", id="user_nome", required=True) }}
+                  {{ login_user_form.user_nome.label(class="form-label",
+                  for="user_nome") }} {{
+                  login_user_form.user_nome(class="form-control",
+                  placeholder="nome de usuário cadastrado", id="user_nome",
+                  required=True) }}
                 </div>
-              {% endif %}
-              <div class="form-group mb-4">
-                {{ login_user_form.senha.label(class="form-label", for="senha") }}
-                {{ login_user_form.senha(class="form-control", placeholder="entre com a sua senha", id="senha", required=True) }}
-              </div>
-              {# Se houver o campo "remember", renderize-o (você pode personalizá-lo se desejar) #}
-              {% if login_user_form.lembre_me is defined %}
-              <div class="form-group">
-                {{ login_user_form.lembre_me() }}
-                {{ login_user_form.lembre_me.label(class="remember", style="font-size: 15px") }}
-              </div>
-              {% endif %}
-              {{ render_field_errors(login_user_form.csrf_token) }}
-              <!-- Botão de envio -->
-              <input name="login" id="login" class="btn btn-block login-btn" type="submit" value="{{ _fsdomain('Login') }}">
-            </form>
-            <!-- Links adicionais -->
-            <a href="{{ url_for('main.forgot_password_view') }}" class="forgot-password-link">{{ _fsdomain('Esqueceu sua senha?') }}</a>
-            <p class="login-wrapper-footer-text">
-              {{ _fsdomain('Não tem uma conta?') }}
-              <a href="{{ url_for('main.app_register') }}" class="text-reset">{{ _fsdomain('Cadastre-se aqui.') }}</a>
-            </p>
+                {% endif %}
+                <div class="form-group mb-4">
+                  {{ login_user_form.senha.label(class="form-label",
+                  for="senha") }} {{ login_user_form.senha(class="form-control",
+                  placeholder="entre com a sua senha", id="senha",
+                  required=True) }}
+                </div>
+                {# Se houver o campo "remember", renderize-o (você pode
+                personalizá-lo se desejar) #} {% if login_user_form.lembre_me is
+                defined %}
+                <div class="form-group">
+                  {{ login_user_form.lembre_me() }} {{
+                  login_user_form.lembre_me.label(class="remember",
+                  style="font-size: 15px") }}
+                </div>
+                {% endif %} {{ render_field_errors(login_user_form.csrf_token)
+                }}
+                <!-- Botão de envio -->
+                <input name="login" id="login" class="btn btn-block login-btn" type="submit"
+                  value="{{ _fsdomain('Login') }}" />
+              </form>
+              <!-- Links adicionais -->
+              <a href="{{ url_for('auth_blueprint.forgot_password_view') }}"
+                class="forgot-password-link">{{ _fsdomain('Esqueceu sua senha?') }}</a>
+            </div>
+            <div>
+              <a href="{{ url_for('auth_blueprint.register_func') }}">Register</a>
+            </div>
+          </div>
+          <!-- Lado da direita: imagem ilustrativa -->
+          <div class="col-sm-6 px-0 d-none d-sm-block">
+            <img src="{{ url_for('static', filename='image/wayne-tower-street.jpg') }}" alt="login image"
+              class="login-img" />
           </div>
         </div>
-        <!-- Lado da direita: imagem ilustrativa -->
-        <div class="col-sm-6 px-0 d-none d-sm-block">
-          <img src="{{ url_for('static', filename='image/wayne-tower-street.jpg') }}" alt="login image" class="login-img">
-        </div>
       </div>
-    </div>
-  </main>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
-</body>
+    </main>
+    <script src="{ { url_for('static', filename ='./assets/js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='./assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{ { url_for('static', filename = './assets/js/bootstrap.min.js') }}"></script>
+  </body>
+
 </html>

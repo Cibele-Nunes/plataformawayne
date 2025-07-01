@@ -1,4 +1,4 @@
-import os
+
 from flask import Flask
 from flask_security import SQLAlchemyUserDatastore
 from importlib import import_module
@@ -23,12 +23,14 @@ def register_extensions(app):
     security.init_app(app, user_datastore)
     
 def register_blueprints(app):
-    for module_name in ('authentication', 'home'):
-        module = import_module('appwayne.{}.routes'.format(module_name))
-        app.register_blueprint(module.blueprint)
+    from appwayne.authentication.views import auth_blueprint
+    app.register_blueprint(auth_blueprint)
 
+    from appwayne.dashboard.routes import dash_blueprint
+    app.register_blueprint(dash_blueprint)
+    
 def create_app():
-    app = Flask(__name__)
+    app = Flask(__name__, template_folder='templates')
     app.config.from_object(Config)
     register_extensions(app)
     register_blueprints(app)

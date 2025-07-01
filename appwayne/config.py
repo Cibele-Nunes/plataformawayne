@@ -33,7 +33,7 @@ class Config:
     
     SECURITY_LOGIN_USER_TEMPLATE = 'app_login.html'
     SECURITY_LOGIN_FORM = LoginForm
-    SECURITY_REGISTER_USER_TEMPLATE = 'app_register.html'
+    SECURITY_REGISTER_USER_TEMPLATE = 'register_func.html'
     SECURITY_REGISTER_FORM = RegistrationForm
     SECURITY_REGISTERABLE = True
     SECURITY_SEND_REGISTER_EMAIL = False
